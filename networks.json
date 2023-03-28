@@ -1,0 +1,11 @@
+{
+  "mumbai": {
+    "DaoCommittee": {
+      "address": "0x8D998955B516C1441672aC246DD235C0D8C36E8B",
+      "startBlock": 33676046
+    },
+    "DaoPublic": {
+      "address": "0x5ce282c0BdcEa280C5F80619bA7FA518D8470592"
+    }
+  }
+}

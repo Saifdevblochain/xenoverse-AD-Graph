@@ -1,0 +1,925 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "DaoPublicInitialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "winTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votersCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "favourVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "disApprovedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "winnerStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isBlackListed",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoPublic.NFTInfo",
+        "name": "_NFT",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "startTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "NftApproved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "DaoPublicOwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "winTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votersCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "favourVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "disApprovedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "winnerStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isBlackListed",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoPublic.NFTInfo",
+        "name": "_NFT",
+        "type": "tuple"
+      }
+    ],
+    "name": "PublicVote",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "winTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votersCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "favourVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "disApprovedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "winnerStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isBlackListed",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoPublic.NFTInfo",
+        "name": "_NFT",
+        "type": "tuple"
+      }
+    ],
+    "name": "Winner",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "decision",
+        "type": "bool"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "winTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votersCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "favourVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "disApprovedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "winnerStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isBlackListed",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoPublic.NFTInfo",
+        "name": "_NFT",
+        "type": "tuple"
+      }
+    ],
+    "name": "blackListed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "claimedBy",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "claimTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "claimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "committeeMember",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "decision",
+        "type": "bool"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "winTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "votersCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "favourVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "disApprovedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "winnerStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isBlackListed",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoPublic.NFTInfo",
+        "name": "_NFT",
+        "type": "tuple"
+      }
+    ],
+    "name": "voteForBlackList",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "FIXED_DURATION",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "Xenoverse",
+    "outputs": [
+      {
+        "internalType": "contract IXenoverse",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isApprovedByCommittee",
+        "type": "bool"
+      }
+    ],
+    "name": "addInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "votes",
+        "type": "int256"
+      }
+    ],
+    "name": "allNodes",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "int256",
+        "name": "next",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "prev",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "votes",
+        "type": "int256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "position",
+        "type": "uint256"
+      }
+    ],
+    "name": "allPositions",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "announceWinner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "decision",
+        "type": "bool"
+      }
+    ],
+    "name": "blackListArt",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "indexes",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "claimBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "daoCommittee",
+    "outputs": [
+      {
+        "internalType": "contract IDaoCommittee",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "getPosition",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "votes",
+        "type": "int256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "position",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
+    ],
+    "name": "getTotalAmounts",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IDaoCommittee",
+        "name": "_daoCommittee",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_timer",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "FIXED_DURATION_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "contract IXenoverse",
+        "name": "_xenoverse",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isclaimed",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "nftInfoo",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "votes",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "winTime",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "votersCount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "favourVotes",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "disApprovedVotes",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isApprovedByCommittee",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "winnerStatus",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "isBlackListed",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_FIXED_DURATION",
+        "type": "uint256"
+      }
+    ],
+    "name": "setTimer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "timer",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IDaoCommittee",
+        "name": "_address",
+        "type": "address"
+      }
+    ],
+    "name": "updateDaoCommitteeAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "voteCheck",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "voteNfts",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "winnersIndexes",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

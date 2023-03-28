@@ -1,0 +1,74 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: DaoCommittee
+    network: mumbai
+    source:
+      address: "0xe93967aE53A14FA46953b629C2b7347b20451330"
+      abi: DaoCommittee
+      startBlock: 33676046
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CommitteeVote
+        - Initialized
+        - NftAdded
+        - OwnershipTransferred
+      abis:
+        - name: DaoCommittee
+          file: ./abis/DaoCommittee.json
+      eventHandlers:
+        - event: CommitteeVote(address,uint256,bool,(string,address,uint256,uint256,bool,bool))
+          handler: handleCommitteeVote
+        - event: Initialized(uint8)
+          handler: handleInitialized
+        - event: NftAdded(uint256,(string,address,uint256,uint256,bool,bool),uint256)
+          handler: handleNftAdded
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/dao-committee.ts
+  - kind: ethereum
+    name: DaoPublic
+    network: mumbai
+    source:
+      address: "0x6a074eFcFB1Cc3F87FD8065D51b9A1c5296A1be1"
+      abi: DaoPublic
+      startBlock: 33676212
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DaoPublicInitialized
+        - NftApproved
+        - DaoPublicOwnershipTransferred
+        - PublicVote
+        - Winner
+        - blackListed
+        - claimed
+        - voteForBlackList
+      abis:
+        - name: DaoPublic
+          file: ./abis/DaoPublic.json
+      eventHandlers:
+        - event: DaoPublicInitialized(uint8)
+          handler: handleDaoPublicInitialized
+        - event: NftApproved(uint256,(string,address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool,bool),uint256)
+          handler: handleNftApproved
+        - event: DaoPublicOwnershipTransferred(indexed address,indexed address)
+          handler: handleDaoPublicOwnershipTransferred
+        - event: PublicVote(address,uint256,(string,address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool,bool))
+          handler: handlePublicVote
+        - event: Winner(uint256,(string,address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool,bool))
+          handler: handleWinner
+        - event: blackListed(uint256,bool,(string,address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool,bool))
+          handler: handleblackListed
+        - event: claimed(address,uint256,uint256,uint256)
+          handler: handleclaimed
+        - event: voteForBlackList(address,uint256,bool,(string,address,uint256,uint256,uint256,uint256,uint256,uint256,bool,bool,bool))
+          handler: handlevoteForBlackList
+      file: ./src/dao-public.ts

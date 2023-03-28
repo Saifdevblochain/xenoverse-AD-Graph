@@ -1,0 +1,250 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "committeeMember",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "decision",
+        "type": "bool"
+      },
+      {
+        "components": [
+          { "internalType": "string", "name": "uri", "type": "string" },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "uint256",
+            "name": "approvedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rejectedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          { "internalType": "bool", "name": "rejected", "type": "bool" }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoCommittee.NFT",
+        "name": "_NFT",
+        "type": "tuple"
+      }
+    ],
+    "name": "CommitteeVote",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          { "internalType": "string", "name": "uri", "type": "string" },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "uint256",
+            "name": "approvedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rejectedVotes",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isApprovedByCommittee",
+            "type": "bool"
+          },
+          { "internalType": "bool", "name": "rejected", "type": "bool" }
+        ],
+        "indexed": false,
+        "internalType": "struct DaoCommittee.NFT",
+        "name": "NFT",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "uploadTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "NftAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "Committee",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DaoPublic",
+    "outputs": [
+      { "internalType": "contract IDaoPublic", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "uri_", "type": "string" }],
+    "name": "addNfts",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "addRemoveCommitteeMember",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "committeeMembersCounter",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "committeeVoteCheck",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "nftStore",
+    "outputs": [
+      { "internalType": "string", "name": "uri", "type": "string" },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "uint256", "name": "approvedVotes", "type": "uint256" },
+      { "internalType": "uint256", "name": "rejectedVotes", "type": "uint256" },
+      {
+        "internalType": "bool",
+        "name": "isApprovedByCommittee",
+        "type": "bool"
+      },
+      { "internalType": "bool", "name": "rejected", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IDaoPublic",
+        "name": "_newAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateDaoPublicAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "index", "type": "uint256" },
+      { "internalType": "bool", "name": "decision", "type": "bool" }
+    ],
+    "name": "voteByCommittee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

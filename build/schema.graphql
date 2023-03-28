@@ -1,0 +1,183 @@
+type CommitteeDecision @entity {
+  id: ID!
+  address: Bytes!
+  decision: Boolean!
+}
+
+type CommitteeVote @entity(immutable: true) {
+  id: Bytes!
+  committeeMember: Bytes! # address
+  index: BigInt! # uint256
+  decision: Boolean! # bool
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_approvedVotes: BigInt! # uint256
+  _NFT_rejectedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_rejected: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Initialized @entity(immutable: true) {
+  id: Bytes!
+  version: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NftAdded @entity(immutable: false) {
+  id: ID!
+  index: BigInt! # uint256
+  NFT_uri: String! # string
+  NFT_owner: Bytes! # address
+  NFT_approvedVotes: BigInt! # uint256
+  NFT_rejectedVotes: BigInt! # uint256
+  NFT_isApprovedByCommittee: Boolean! # bool
+  NFT_rejected: Boolean! # bool
+  uploadTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  adminVotes: [String!]!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type DaoPublicInitialized @entity(immutable: true) {
+  id: Bytes!
+  version: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NftApproved @entity(immutable: false) {
+  id: ID!
+  index: BigInt! # uint256
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_index: BigInt! # uint256
+  _NFT_votes: BigInt! # uint256
+  _NFT_winTime: BigInt! # uint256
+  _NFT_votersCount: BigInt! # uint256
+  _NFT_favourVotes: BigInt! # uint256
+  _NFT_disApprovedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_winnerStatus: Boolean! # bool
+  _NFT_isBlackListed: Boolean! # bool
+  startTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  publicVotes: [Bytes!]!
+  adminVotes: [String!]!
+}
+
+type DaoPublicOwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PublicVote @entity(immutable: true) {
+  id: Bytes!
+  voter: Bytes! # address
+  index: BigInt! # uint256
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_index: BigInt! # uint256
+  _NFT_votes: BigInt! # uint256
+  _NFT_winTime: BigInt! # uint256
+  _NFT_votersCount: BigInt! # uint256
+  _NFT_favourVotes: BigInt! # uint256
+  _NFT_disApprovedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_winnerStatus: Boolean! # bool
+  _NFT_isBlackListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Winner @entity(immutable: true) {
+  id: Bytes!
+  index: BigInt! # uint256
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_index: BigInt! # uint256
+  _NFT_votes: BigInt! # uint256
+  _NFT_winTime: BigInt! # uint256
+  _NFT_votersCount: BigInt! # uint256
+  _NFT_favourVotes: BigInt! # uint256
+  _NFT_disApprovedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_winnerStatus: Boolean! # bool
+  _NFT_isBlackListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type blackListed @entity(immutable: true) {
+  id: Bytes!
+  index: BigInt! # uint256
+  decision: Boolean! # bool
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_index: BigInt! # uint256
+  _NFT_votes: BigInt! # uint256
+  _NFT_winTime: BigInt! # uint256
+  _NFT_votersCount: BigInt! # uint256
+  _NFT_favourVotes: BigInt! # uint256
+  _NFT_disApprovedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_winnerStatus: Boolean! # bool
+  _NFT_isBlackListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type claimed @entity(immutable: true) {
+  id: Bytes!
+  claimedBy: Bytes! # address
+  index: BigInt! # uint256
+  amount: BigInt! # uint256
+  claimTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type voteForBlackList @entity(immutable: true) {
+  id: Bytes!
+  committeeMember: Bytes! # address
+  index: BigInt! # uint256
+  decision: Boolean! # bool
+  _NFT_uri: String! # string
+  _NFT_owner: Bytes! # address
+  _NFT_index: BigInt! # uint256
+  _NFT_votes: BigInt! # uint256
+  _NFT_winTime: BigInt! # uint256
+  _NFT_votersCount: BigInt! # uint256
+  _NFT_favourVotes: BigInt! # uint256
+  _NFT_disApprovedVotes: BigInt! # uint256
+  _NFT_isApprovedByCommittee: Boolean! # bool
+  _NFT_winnerStatus: Boolean! # bool
+  _NFT_isBlackListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
